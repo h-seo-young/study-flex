@@ -1,14 +1,25 @@
 import { Component } from "../../core/component";
+import "./index.css";
 
 class Case2 extends Component {
-  styleHref = "src/page/2/style.css";
-
   template(): string {
     return /*html*/ `
-      <div class="page2">
-        <h1>Page 2</h1>
-        <p>This is the content of Page 2.</p>
-      </div>
+      <main class="case2-main">
+        <section class="row-container">
+          ${Array.from(
+            { length: 20 },
+            (_, idx) => `<div class='row-item'>${idx}</div>`
+          ).join("")}
+        </section>
+      
+        <section class="col-container">
+          ${Array.from(
+            { length: 20 },
+            (_, idx) => `<div class='col-item'>${idx}</div>`
+          ).join("")}
+        </section>
+        
+      </main>
     `;
   }
 }

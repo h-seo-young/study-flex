@@ -1,13 +1,24 @@
 import { Component } from "../../core/component";
+import "./index.css";
 
 class Case3 extends Component {
-  styleHref = "src/page/3/style.css";
-
   template(): string {
     return /*html*/ `
-      <div class="page3">
-        <h1>Page 3</h1>
-        <p>This is the content of Page 3.</p>
+      <main class="case3-container">
+        ${Array.from({ length: 100 }, (_, i) => i + 1)
+          .map(
+            (num) => `
+          <div class="item">
+            <h2>Item ${num}</h2>
+            <p>This is the content of item ${num}.</p>
+          </div>
+        `
+          )
+          .join("")}
+      </main>
+
+      <div class="case3-footer">
+          <p>Footer </p>
       </div>
     `;
   }

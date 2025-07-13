@@ -1,0 +1,53 @@
+.case3-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: 100%;
+  align-content: flex-start;
+  align-content: stretch;
+
+  gap: 0.5rem;
+
+  margin-top: 1rem;
+}
+
+.item {
+  /* 
+    flex: 1 1 calc(33%);
+    한 줄에 3개 들어갈 공간이 충분하면 3개씩 배치되고, 남는 공간을 늘려 꽉 채움.
+    공간이 부족하면 item들이 줄어들어 (flex-shrink: 1) 한 줄에 2개 또는 1개씩 배치됨.
+*/
+
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: calc(33% - 1rem); /* 3개씩 배치되도록 기본 너비 설정. gap 고려 */
+
+  width: 100%;
+  outline: 0.5px solid var(--secondary-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 280px;
+}
+
+.item > h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.case3-footer {
+  background-color: var(--secondary-color);
+  height: 120px;
+
+  color: white;
+  padding: 1rem;
+  text-align: center;
+
+  margin-top: 1rem;
+}

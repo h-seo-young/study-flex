@@ -1,0 +1,108 @@
+/* Header 스타일 */
+.app-header {
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0; /* 헤더는 내용이 길어져도 줄어들지 않음 */
+}
+.app-header h1 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.app-header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* 2. Main Content Area: 본문 영역 (가로 방향 Flex) */
+.app-main-content-area {
+  display: flex;
+  flex-direction: row; /* article과 aside를 가로로 정렬 */
+  flex: 1; /* 헤더와 푸터를 제외한 남는 세로 공간을 모두 차지 */
+  background-color: #fdfdfd; /* 배경색으로 영역 구분 */
+}
+
+/* Article (주요 콘텐츠) */
+.main-article {
+  background-color: #ffffff;
+  padding: 2rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  border-right: 1px solid #eee;
+}
+
+.main-article p {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.main-article h2,
+.main-article h3 {
+  margin-top: 0;
+  color: #555;
+}
+
+/* Aside (사이드바) */
+.main-sidebar {
+  background-color: #e9ecef;
+  padding: 2rem;
+  flex-basis: 250px;
+  flex-shrink: 0;
+}
+
+.main-sidebar h2 {
+  margin-top: 0;
+  color: #555;
+}
+
+.main-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.main-sidebar ul li a {
+  text-decoration: none;
+  color: #007bff;
+  display: block;
+  padding: 5px 0;
+}
+
+.main-sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Footer 스타일 */
+.app-footer {
+  background-color: #343a40;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid #444;
+  flex-shrink: 0;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리  */
+@media (max-width: 900px) {
+  .app-main-content-area {
+    flex-direction: column; /* 작은 화면에서는 세로로 쌓이도록 변경 */
+  }
+
+  .main-article,
+  .main-sidebar {
+    flex-basis: auto; /* 고정 너비 대신 자동으로 높이/너비 조절 */
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid #eee; /* 세로 방향으로 쌓일 때 상단에 구분선 추가 */
+  }
+  .main-article {
+    order: 2; /* 작은 화면에서 article을 사이드바 아래로 이동 */
+  }
+  .main-sidebar {
+    order: 1; /* 작은 화면에서 사이드바를 article 위로 이동 */
+  }
+}

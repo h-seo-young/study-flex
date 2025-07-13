@@ -1,6 +1,8 @@
 import { Case1 } from "../page/1";
 import { Case2 } from "../page/2";
 import { Case3 } from "../page/3";
+import { Case4 } from "../page/4";
+import { Case5 } from "../page/5";
 
 import type { Component } from "../core/component";
 
@@ -19,14 +21,24 @@ export const routes: Route[] = [
     name: "Case 1",
   },
   {
-    component: Case2, // 다른 페이지 컴포넌트로 변경 가능
+    component: Case2,
     href: "/2",
     name: "Case 2",
   },
   {
-    component: Case3, // 기본 페이지로 설정
+    component: Case3,
     href: "/3",
     name: "Case 3",
+  },
+  {
+    component: Case4,
+    href: "/4",
+    name: "Case 4",
+  },
+  {
+    component: Case5,
+    href: "/5",
+    name: "Case 5",
   },
 ];
 

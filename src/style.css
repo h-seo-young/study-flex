@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
+  --primary-color: #262626;
+  --secondary-color: #787a7c;
   --background-color: #f8f9fa;
   --text-color: #212529;
 
@@ -17,15 +17,14 @@ html,
 body {
   position: relative;
   height: 100%;
+  width: 100%;
 }
 
 #app {
+  height: 100%;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.app-contents {
 }
 
 a {
