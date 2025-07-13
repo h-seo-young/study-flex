@@ -1,9 +1,23 @@
+import { routes, setUpRoutes } from "./routes";
+import { setupNavigation } from "./setup/nav";
+
 import "./style.css";
 
-import { setupCounter } from "./counter.ts";
+const app = document.querySelector<HTMLDivElement>("#app")!;
+const nav = document.createElement("nav");
+const main = document.createElement("main");
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <h1>Hello wrold!</h1>
-`;
+app.appendChild(nav);
+app.appendChild(main);
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+const { renderLocation } = setUpRoutes(main);
+
+setupNavigation({
+  routes,
+  element: nav,
+  renderPage: () => {
+    renderLocation(main);
+  },
+});
+
+renderLocation(main); // 초기 페이지 렌더링
