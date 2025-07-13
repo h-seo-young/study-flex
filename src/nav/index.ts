@@ -1,23 +1,23 @@
 import type { Route } from "../routes";
+import "./index.css";
 
 export function setupNavigation({
   routes,
-  element,
   renderPage,
 }: {
   routes: Route[];
-  element: HTMLElement;
   renderPage: () => void;
 }) {
   const nav = document.createElement("nav");
-
-  element.appendChild(nav);
+  nav.className = "app-navigation";
 
   // Navigation links
   routes.forEach((route) => {
     const link = document.createElement("a");
+
+    link.className = "app-navigation-link";
     link.href = route.href;
-    link.textContent = `Go to ${route.href}`;
+    link.textContent = `${route.name || route.component.name}`;
 
     nav.appendChild(link);
   });
@@ -32,4 +32,8 @@ export function setupNavigation({
       renderPage();
     }
   });
+
+  return {
+    navElement: nav,
+  };
 }
