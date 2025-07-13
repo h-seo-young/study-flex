@@ -1,0 +1,20 @@
+.app-navigation {
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: #f8f9fa;
+}
+
+.app-navigation-link {
+  margin-right: 1rem;
+}
+
+.app-navigation-link:hover {
+  text-decoration: underline;
+}

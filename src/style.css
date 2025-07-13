@@ -1,9 +1,40 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+
+  --nav-height: 60px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+#app {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-contents {
+}
+
 a {
   all: unset;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  #app {
+    width: 100%;
+  }
 }
