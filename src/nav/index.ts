@@ -11,16 +11,23 @@ export function setupNavigation({
   const nav = document.createElement("nav");
   nav.className = "app-navigation";
 
-  // Navigation links
-  routes.forEach((route) => {
-    const link = document.createElement("a");
+  const renderNav = () => {
+    nav.innerHTML = /*html*/ `
+  <a class='app-title'>Study Flex Layout</a>
+  
+  <div class="app-navigation-links">
+    ${routes
+      .map(
+        (route) =>
+          `<a class="app-navigation-link ${
+            route.href === window.location.pathname ? "current-page" : ""
+          }" href="${route.href}">${route.name || route.component.name} </a>`
+      )
+      .join("")}
+  </div>`;
+  };
 
-    link.className = "app-navigation-link";
-    link.href = route.href;
-    link.textContent = `${route.name || route.component.name}`;
-
-    nav.appendChild(link);
-  });
+  renderNav();
 
   nav.addEventListener("click", (e) => {
     const target = e.target as HTMLAnchorElement;
@@ -30,6 +37,7 @@ export function setupNavigation({
       history.pushState(null, "", target.href);
 
       renderPage();
+      renderNav();
     }
   });
 

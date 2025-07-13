@@ -1,20 +1,32 @@
 .app-navigation {
   position: sticky;
-  top: 0;
-
-  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   height: var(--nav-height);
-  display: flex;
-  align-items: center;
   padding: 0 1rem;
+
+  top: 0;
+  z-index: 1000;
   background-color: #f8f9fa;
 }
-
-.app-navigation-link {
-  margin-right: 1rem;
+.app-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #343a40;
+}
+.app-navigation-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .app-navigation-link:hover {
+  text-decoration: underline;
+}
+
+.current-page {
+  font-weight: bold;
   text-decoration: underline;
 }
