@@ -1,11 +1,11 @@
-import { Page } from "../../core/page";
+import { Component } from "../../core/component";
 import "./index.css";
 
-class Page1 extends Page {
+class Case1 extends Component {
   template(): string {
     return /*html*/ `
       <div class='container'>
-        <header class='header'>page 1 header</header>
+        <header class='header'>Case 1 header</header>
         
         <main class='main'>
         ${Array.from({ length: 20 })
@@ -19,4 +19,4 @@ class Page1 extends Page {
   }
 }
 
-export { Page1 };
+export { Case1 };

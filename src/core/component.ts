@@ -1,4 +1,4 @@
-export class Page {
+export class Component {
   $: HTMLElement;
   styleHref?: string;
   private styleElement: HTMLLinkElement | null = null;
@@ -13,7 +13,7 @@ export class Page {
    *
    * @returns {string} 페이지의 HTML 템플릿 문자열
    */
-  template() {
+  template(): string {
     return ``;
   }
 

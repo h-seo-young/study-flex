@@ -1,32 +1,32 @@
-import { Page1 } from "../page/1";
-import { Page2 } from "../page/2";
-import { Page3 } from "../page/3";
+import { Case1 } from "../page/1";
+import { Case2 } from "../page/2";
+import { Case3 } from "../page/3";
 
-import type { Page } from "../core/page";
+import type { Component } from "../core/component";
 
 import "./index.css";
 
 export type Route = {
-  component: typeof Page;
+  component: typeof Component;
   href: string;
   name?: string;
 };
 
 export const routes: Route[] = [
   {
-    component: Page1,
+    component: Case1,
     href: "/1",
-    name: "Page 1",
+    name: "Case 1",
   },
   {
-    component: Page2, // 다른 페이지 컴포넌트로 변경 가능
+    component: Case2, // 다른 페이지 컴포넌트로 변경 가능
     href: "/2",
-    name: "Page 2",
+    name: "Case 2",
   },
   {
-    component: Page3, // 기본 페이지로 설정
+    component: Case3, // 기본 페이지로 설정
     href: "/3",
-    name: "Page 3",
+    name: "Case 3",
   },
 ];
 
@@ -34,11 +34,9 @@ export const routes: Route[] = [
  * 라우트 설정 및 렌더링 함수
  *
  * 이 함수는 현재 경로에 맞는 컴포넌트를 렌더링하고, 뒤로가기 / 앞으로가기 버튼을 처리합니다.
- *
- * @returns {Object} 렌더링 함수와 콘텐츠 엘리먼트를 포함하는 객체
  */
 export function setUpRoutes() {
-  let currentComponent: Page | null = null;
+  let currentComponent: Component | null = null;
 
   const rootRenderEl = document.createElement("div");
   rootRenderEl.className = "app-contents";
@@ -70,7 +68,21 @@ export function setUpRoutes() {
   window.addEventListener("popstate", handelPopState);
 
   return {
+    /**
+     * 현재 경로에 맞는 컴포넌트를 렌더링하는 함수
+     * @param element - 렌더링할 HTML 요소
+     *
+     * 이 함수는 현재 경로에 맞는 컴포넌트를 찾아서 렌더링합니다.
+     * 만약 현재 경로에 맞는 컴포넌트가 없다면, 첫 번째 라우트의 컴포넌트를 렌더링합니다.
+     */
     renderLocation,
+    /**
+     * 현재 페이지를 렌더링할 HTML 요소
+     * @type {HTMLElement}
+     *
+     * 이 요소는 현재 페이지의 내용을 렌더링하는 데 사용됩니다.
+     * 페이지 컴포넌트가 이 요소에 내용을 추가합니다.
+     */
     contentsEl: rootRenderEl,
   };
 }

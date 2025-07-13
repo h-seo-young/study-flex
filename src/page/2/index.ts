@@ -1,6 +1,6 @@
-import { Page } from "../../core/page";
+import { Component } from "../../core/component";
 
-class Page2 extends Page {
+class Case2 extends Component {
   styleHref = "src/page/2/style.css";
 
   template(): string {
@@ -13,4 +13,4 @@ class Page2 extends Page {
   }
 }
 
-export { Page2 };
+export { Case2 };
